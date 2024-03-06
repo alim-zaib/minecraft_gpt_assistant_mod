@@ -11,6 +11,10 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.URI;
+import java.util.Base64;
+import java.nio.file.Path;
+
+
 import com.google.gson.Gson;
 
 public class OpenAIUtil {
@@ -43,5 +47,31 @@ public class OpenAIUtil {
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         return response.body();
     }
+
+    // Method to send image and prompt to OpenAI API
+    public static String askWithImage(String prompt, byte[] imageData) throws Exception {
+        String encodedImage = Base64.getEncoder().encodeToString(imageData);
+        String apiKey = ModConfig.loadApiKey(); // Make sure this correctly fetches your API key.
+        HttpClient client = HttpClient.newHttpClient();
+
+        String imageJson = String.format("{\"type\": \"image_url\", \"image_url\": {\"url\": \"data:image/jpeg;base64,%s\"}}", encodedImage);
+        String textJson = String.format("{\"type\": \"text\", \"text\": \"%s\"}", prompt.replace("\"", "\\\""));
+
+        String payload = String.format("{ \"model\": \"gpt-4-vision-preview\", \"messages\": [{ \"role\": \"user\", \"content\": [%s, %s] }], \"max_tokens\": 300 }", textJson, imageJson);
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://api.openai.com/v1/chat/completions"))
+                .header("Authorization", "Bearer " + apiKey)
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString(payload))
+                .build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        return response.body();
+    }
+
+
+
 }
+
 

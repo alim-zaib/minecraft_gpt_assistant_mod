@@ -2,8 +2,7 @@ package net.alimzaib.GPTAssistantMod;
 
 import com.mojang.datafixers.types.templates.Check;
 import com.mojang.logging.LogUtils;
-import net.alimzaib.GPTAssistantMod.commands.SetApiKeyCommand;
-import net.alimzaib.GPTAssistantMod.commands.CheckApiKeyCommand;
+import net.alimzaib.GPTAssistantMod.commands.*;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -16,9 +15,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import net.minecraftforge.event.RegisterCommandsEvent;
-import net.alimzaib.GPTAssistantMod.commands.CraftingQueryCommand;
-
-import net.alimzaib.GPTAssistantMod.commands.ShowInventoryCommand;
 
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -50,6 +46,7 @@ public class GPTAssistantMod {
         CheckApiKeyCommand.register(event.getDispatcher());
         CraftingQueryCommand.register(event.getDispatcher());
         ShowInventoryCommand.register(event.getDispatcher());
+        AskVisionCommand.register(event.getDispatcher());
     }
 
 
