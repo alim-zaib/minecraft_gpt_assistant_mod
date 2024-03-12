@@ -2,11 +2,10 @@ package net.alimzaib.GPTAssistantMod.commands;
 
 
 import com.mojang.brigadier.CommandDispatcher;
-import com.mojang.brigadier.arguments.StringArgumentType;
+import net.alimzaib.GPTAssistantMod.util.InventoryUtil;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
-import net.alimzaib.GPTAssistantMod.util.InventoryUtil; // Make sure to import InventoryUtil
 
 public class ShowInventoryCommand {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {

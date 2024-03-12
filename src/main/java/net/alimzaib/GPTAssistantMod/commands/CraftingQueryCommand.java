@@ -28,7 +28,7 @@ public class CraftingQueryCommand {
             Player player = context.getSource().getPlayerOrException();
             String inventoryState = InventoryUtil.getInventoryStateAsText(player);
             String query = StringArgumentType.getString(context, "query");
-            String prompt = "Given my inventory: \n" + inventoryState + "\n" + "Question: " + query + " in Minecraft?";
+            String prompt = "Given my inventory: \n" + inventoryState + "\n" + "Question: " + query + " in Minecraft version 1.20.1?";
 
 
             // Log the prompt for debugging

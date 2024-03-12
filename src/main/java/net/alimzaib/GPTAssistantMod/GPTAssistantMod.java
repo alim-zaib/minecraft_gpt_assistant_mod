@@ -1,12 +1,11 @@
 package net.alimzaib.GPTAssistantMod;
 
-import com.mojang.datafixers.types.templates.Check;
 import com.mojang.logging.LogUtils;
 import net.alimzaib.GPTAssistantMod.commands.*;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.event.server.ServerStartingEvent;
+import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -14,7 +13,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
-import net.minecraftforge.event.RegisterCommandsEvent;
 
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -47,6 +45,7 @@ public class GPTAssistantMod {
         CraftingQueryCommand.register(event.getDispatcher());
         ShowInventoryCommand.register(event.getDispatcher());
         AskVisionCommand.register(event.getDispatcher());
+        ScreenshotCommand.register(event.getDispatcher());
     }
 
 

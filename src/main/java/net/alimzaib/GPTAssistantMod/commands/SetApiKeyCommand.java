@@ -1,23 +1,13 @@
 package net.alimzaib.GPTAssistantMod.commands;
 
 
-import net.minecraft.network.chat.Component;
-import net.minecraft.commands.CommandSourceStack;
-import net.minecraft.commands.Commands;
-import net.alimzaib.GPTAssistantMod.config.ModConfig;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
-import com.mojang.brigadier.context.CommandContext;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.phys.Vec3;
-import net.alimzaib.GPTAssistantMod.util.OpenAIValidator;
-import net.minecraft.server.level.ServerPlayer;
-
 import net.alimzaib.GPTAssistantMod.config.ModConfig;
 import net.alimzaib.GPTAssistantMod.util.OpenAIValidator;
-import java.util.concurrent.CompletableFuture;
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.commands.Commands;
+import net.minecraft.network.chat.Component;
 
 public class SetApiKeyCommand {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {

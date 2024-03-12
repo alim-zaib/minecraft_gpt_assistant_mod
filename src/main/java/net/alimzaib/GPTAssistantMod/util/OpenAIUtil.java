@@ -1,21 +1,15 @@
 package net.alimzaib.GPTAssistantMod.util;
-import com.google.gson.JsonArray;
-import net.alimzaib.GPTAssistantMod.config.ModConfig;
-
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.net.URI;
-import com.google.gson.JsonObject;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.net.URI;
-import java.util.Base64;
-import java.nio.file.Path;
-
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import net.alimzaib.GPTAssistantMod.config.ModConfig;
+
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.Base64;
 
 public class OpenAIUtil {
     public static String askGPT(String prompt) throws Exception {
