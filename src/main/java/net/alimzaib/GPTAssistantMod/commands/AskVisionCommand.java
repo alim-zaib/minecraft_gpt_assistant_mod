@@ -31,7 +31,7 @@ public class AskVisionCommand {
                                     String modifiedQuery = "In the context of Minecraft version 1.20.1, " + query;
                                     GPTAssistantMod.LOGGER.info("Sending image and query to OpenAI: " + modifiedQuery);
 
-                                    return OpenAIUtil.askWithImage(modifiedQuery, screenshotData); // Assume this method returns a Future<String>
+                                    return OpenAIUtil.askWithImage(modifiedQuery, screenshotData);
                                 } catch (IOException e) {
                                     GPTAssistantMod.LOGGER.error("Failed to process the screenshot", e);
                                     return null;
@@ -45,18 +45,13 @@ public class AskVisionCommand {
                                     JsonObject jsonResponse = JsonParser.parseString(response).getAsJsonObject();
                                     String textResponse = jsonResponse.get("choices").getAsJsonArray().get(0).getAsJsonObject().get("message").getAsJsonObject().get("content").getAsString();
 
-                                    source.getServer().execute(() -> {
-                                        context.getSource().sendSuccess(() -> Component.literal(textResponse), false);
-
-                                    });
+                                    source.getServer().execute(() -> context.getSource().sendSuccess(() -> Component.literal(textResponse), false));
                                 } else {
-                                    source.getServer().execute(() -> {
-                                        source.sendFailure(Component.literal("Failed to get a valid response from OpenAI."));
-                                    });
+                                    source.getServer().execute(() -> source.sendFailure(Component.literal("Failed to get a valid response from OpenAI.")));
                                 }
                             });
 
-                            return 1; // Immediately return from the command execution
+                            return 1;
                         }))
         );
     }

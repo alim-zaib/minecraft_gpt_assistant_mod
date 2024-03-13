@@ -14,7 +14,7 @@ public class ShowInventoryCommand {
                     CommandSourceStack source = context.getSource();
                     String inventoryState = InventoryUtil.getInventoryStateAsText(source.getPlayerOrException());
                     context.getSource().sendSuccess(() -> Component.literal(inventoryState), false);
-                    return 1; // Return a successful result
+                    return 1;
                 }));
     }
 }

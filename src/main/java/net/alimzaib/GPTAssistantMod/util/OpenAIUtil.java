@@ -16,12 +16,11 @@ public class OpenAIUtil {
         String apiKey = ModConfig.loadApiKey(); // Fetches the API key
         HttpClient client = HttpClient.newHttpClient();
 
-        // Adjusted URL for chat completions
         String apiUrl = "https://api.openai.com/v1/chat/completions";
 
         // Constructing the JSON payload with Gson for better accuracy
         JsonObject jsonPayload = new JsonObject();
-        jsonPayload.addProperty("model", "gpt-4");
+        jsonPayload.addProperty("model", "gpt-4-turbo-preview");
         JsonArray messages = new JsonArray();
         JsonObject messageContent = new JsonObject();
         messageContent.addProperty("role", "user");
@@ -45,7 +44,7 @@ public class OpenAIUtil {
     // Method to send image and prompt to OpenAI API
     public static String askWithImage(String prompt, byte[] imageData) throws Exception {
         String encodedImage = Base64.getEncoder().encodeToString(imageData);
-        String apiKey = ModConfig.loadApiKey(); // Make sure this correctly fetches your API key.
+        String apiKey = ModConfig.loadApiKey();
         HttpClient client = HttpClient.newHttpClient();
 
         String imageJson = String.format("{\"type\": \"image_url\", \"image_url\": {\"url\": \"data:image/jpeg;base64,%s\"}}", encodedImage);

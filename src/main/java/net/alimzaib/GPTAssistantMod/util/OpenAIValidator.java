@@ -27,7 +27,6 @@ public class OpenAIValidator {
                     if (response.statusCode() == 200) {
                         return true;
                     } else {
-                        // Log the response body for debugging purposes
                         GPTAssistantMod.LOGGER.error("API Key validation failed with status code {}: {}", response.statusCode(), response.body());
                         return false;
                     }

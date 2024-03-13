@@ -34,7 +34,7 @@ public class CraftingQueryCommand {
             // Log the prompt for debugging
             GPTAssistantMod.LOGGER.info("Sending prompt to GPT: " + prompt);
 
-            String response = OpenAIUtil.askGPT(prompt); // Ensure askGPT method properly extracts the response
+            String response = OpenAIUtil.askGPT(prompt);
             JsonObject jsonResponse = JsonParser.parseString(response).getAsJsonObject();
             String assistantResponse = jsonResponse.getAsJsonArray("choices")
                     .get(0).getAsJsonObject()

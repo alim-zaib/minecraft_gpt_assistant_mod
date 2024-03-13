@@ -10,7 +10,6 @@ public class ModConfig {
     private static String apiKey = "";
 
     public static String getApiKey() {
-        // Here you can add the logic to load the API key if it's not already loaded
         if (apiKey.isEmpty()) {
             loadApiKey();
         }
@@ -19,13 +18,11 @@ public class ModConfig {
 
     public static void setApiKey(String newApiKey) {
         apiKey = newApiKey;
-        // Save the API key using Preferences API
         prefs.put(API_KEY_PREF, apiKey);
     }
 
     public static String loadApiKey() {
-        // Load and return the API key using Preferences API
-        return prefs.get(API_KEY_PREF, ""); // Default to empty string if not found
+        return prefs.get(API_KEY_PREF, "");
     }
 
 }

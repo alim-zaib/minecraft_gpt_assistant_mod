@@ -22,7 +22,7 @@ public class ScreenshotTaker {
         Screenshot.grab(screenshotsDirPath.toFile(), mc.getMainRenderTarget(), messageConsumer);
 
         // Wait a bit to ensure the file system has updated.
-        //Thread.sleep(1000);
+        Thread.sleep(1000);
 
         GPTAssistantMod.LOGGER.info("Looking for screenshots in: " + screenshotsDirPath);
 

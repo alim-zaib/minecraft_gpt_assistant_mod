@@ -22,12 +22,11 @@ public class ScreenshotCommand {
                         context.getSource().sendFailure(Component.literal("Failed to take screenshot: " + e.getMessage()));
                         GPTAssistantMod.LOGGER.error("Unexpected IOException processing command", e);
                     } catch (InterruptedException e) {
-                        // Handle the InterruptedException
-                        Thread.currentThread().interrupt(); // Preserve interrupt status
+                        Thread.currentThread().interrupt();
                         context.getSource().sendFailure(Component.literal("Screenshot taking was interrupted."));
                         GPTAssistantMod.LOGGER.error("Unexpected InterruptedException processing command", e);
                     }
-                    return 1; // Return a successful command execution regardless of the outcome
+                    return 1;
                 }));
     }
 }

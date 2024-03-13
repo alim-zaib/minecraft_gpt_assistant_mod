@@ -15,19 +15,19 @@ public class CheckApiKeyCommand {
     }
 
     private static int checkApiKey(CommandSourceStack source) {
-        // Adjust this call as needed; for example, you might directly use validateApiKey
-        // or implement a new method in OpenAIValidator that doesn't consume tokens
-        boolean valid = OpenAIValidator.validateApiKey(ModConfig.loadApiKey()).join();
+        String apiKey = ModConfig.loadApiKey(); // Load the current API key
+        // Use the API key asynchronously to validate it, ensuring not to block the game's main thread
+        OpenAIValidator.validateApiKey(apiKey).thenAcceptAsync(valid -> {
+            if (valid) {
+                // If the key is valid, inform the user of the key's validity and show the key
+                source.getServer().execute(() -> { // Ensure we're on the main thread when interacting with the game state
+                    source.sendSuccess(() -> Component.literal("OpenAI API key is valid. Current key: " + apiKey), false);
+                });
+            } else {
+                source.getServer().execute(() -> source.sendFailure(Component.literal("OpenAI API key is invalid or could not be validated.")));
+            }
+        });
 
-        if (valid) {
-            // Adjust based on your Minecraft version
-            source.sendSuccess(() -> Component.literal("OpenAI API key is valid."), false);
-        } else {
-            // Adjust based on your Minecraft version
-            source.sendFailure(Component.literal("OpenAI API key is invalid or could not be validated."));
-        }
-
-        return valid ? 1 : 0;
+        return 1;
     }
 }
-
