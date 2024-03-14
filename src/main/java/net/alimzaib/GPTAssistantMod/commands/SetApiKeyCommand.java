@@ -20,16 +20,10 @@ public class SetApiKeyCommand {
                             // Validate the API key asynchronously
                             OpenAIValidator.validateApiKey(apiKey).thenAcceptAsync(isValid -> {
                                 if (isValid) {
-                                    // If the key is valid, store it and inform the player.
                                     ModConfig.setApiKey(apiKey); // Store the key only if valid
-                                    context.getSource().getServer().execute(() -> { // Ensure we're on the main thread
-                                        context.getSource().sendSuccess(() -> Component.literal("API key is valid and stored!"), true);
-
-                                    });
+                                    context.getSource().getServer().execute(() -> context.getSource().sendSuccess(() -> Component.literal("API key is valid and stored!"), true));
                                 } else {
-                                    context.getSource().getServer().execute(() -> { //
-                                        context.getSource().sendFailure(Component.literal("API key is invalid or could not be validated."));
-                                    });
+                                    context.getSource().getServer().execute(() -> context.getSource().sendFailure(Component.literal("API key is invalid or could not be validated.")));
                                 }
                             });
 

@@ -14,6 +14,8 @@ import net.minecraft.network.chat.Component;
 import net.alimzaib.GPTAssistantMod.util.OpenAIUtil;
 import net.minecraft.world.entity.player.Player;
 
+import java.util.concurrent.CompletableFuture;
+
 public class CraftingQueryCommand {
 
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
@@ -24,32 +26,39 @@ public class CraftingQueryCommand {
     }
 
     private static int handleCraftingQuery(CommandContext<CommandSourceStack> context) {
+        CommandSourceStack source = context.getSource();
         try {
-            Player player = context.getSource().getPlayerOrException();
+            Player player = source.getPlayerOrException();
             String inventoryState = InventoryUtil.getInventoryStateAsText(player);
             String query = StringArgumentType.getString(context, "query");
             String prompt = "Given my inventory: \n" + inventoryState + "\n" + "Question: " + query + " in Minecraft version 1.20.1?";
 
-
-            // Log the prompt for debugging
             GPTAssistantMod.LOGGER.info("Sending prompt to GPT: " + prompt);
 
-            String response = OpenAIUtil.askGPT(prompt);
-            JsonObject jsonResponse = JsonParser.parseString(response).getAsJsonObject();
-            String assistantResponse = jsonResponse.getAsJsonArray("choices")
-                    .get(0).getAsJsonObject()
-                    .getAsJsonObject("message")
-                    .get("content").getAsString();
+            CompletableFuture.supplyAsync(() -> {
+                try {
+                    return OpenAIUtil.askGPT(prompt);
+                } catch (Exception e) {
+                    GPTAssistantMod.LOGGER.error("Exception while querying GPT", e);
+                    return "{\"error\":\"Failed to get response from GPT\"}";
+                }
+            }).thenAcceptAsync(response -> {
+                if (response != null && !response.contains("\"error\":")) {
+                    JsonObject jsonResponse = JsonParser.parseString(response).getAsJsonObject();
+                    String assistantResponse = jsonResponse.getAsJsonArray("choices")
+                            .get(0).getAsJsonObject()
+                            .get("message").getAsJsonObject()
+                            .get("content").getAsString();
 
-            // Send the assistant's response back to the player
-            context.getSource().sendSuccess(() -> Component.literal(assistantResponse), false);
+                    context.getSource().sendSuccess(() -> Component.literal(assistantResponse), false);
+                } else {
+                    source.getServer().execute(() -> source.sendFailure(Component.literal("Failed to get a valid response from GPT.")));
+                }
+            });
 
         } catch (CommandSyntaxException e) {
-            context.getSource().sendFailure(Component.literal("This command can only be run by a player."));
+            source.sendFailure(Component.literal("This command can only be run by a player."));
             GPTAssistantMod.LOGGER.error("Error executing command: ", e);
-        } catch (Exception e) {
-            context.getSource().sendFailure(Component.literal("An unexpected error occurred."));
-            GPTAssistantMod.LOGGER.error("Unexpected error processing command", e);
         }
         return 1;
     }

@@ -15,14 +15,11 @@ public class CheckApiKeyCommand {
     }
 
     private static int checkApiKey(CommandSourceStack source) {
-        String apiKey = ModConfig.loadApiKey(); // Load the current API key
+        String apiKey = ModConfig.loadApiKey();
         // Use the API key asynchronously to validate it, ensuring not to block the game's main thread
         OpenAIValidator.validateApiKey(apiKey).thenAcceptAsync(valid -> {
             if (valid) {
-                // If the key is valid, inform the user of the key's validity and show the key
-                source.getServer().execute(() -> { // Ensure we're on the main thread when interacting with the game state
-                    source.sendSuccess(() -> Component.literal("OpenAI API key is valid. Current key: " + apiKey), false);
-                });
+                source.getServer().execute(() -> source.sendSuccess(() -> Component.literal("OpenAI API key is valid. Current key: " + apiKey), false));
             } else {
                 source.getServer().execute(() -> source.sendFailure(Component.literal("OpenAI API key is invalid or could not be validated.")));
             }

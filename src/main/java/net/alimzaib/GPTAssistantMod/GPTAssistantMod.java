@@ -46,6 +46,7 @@ public class GPTAssistantMod {
         ShowInventoryCommand.register(event.getDispatcher());
         AskVisionCommand.register(event.getDispatcher());
         ScreenshotCommand.register(event.getDispatcher());
+        GeneralQueryCommand.register(event.getDispatcher());
     }
 
 
