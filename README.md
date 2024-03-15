@@ -30,7 +30,7 @@ This section outlines the technologies utilised in this project and the key insi
 
 - **Minecraft Documentation**: Critical for gaining insights into Minecraft's internal mechanics and modding capabilities.
 
-- **Forge Documentation**: Forge's modding API facilitated the implementation of this project.
+- **Forge Documentation**: The documentation for Forge's modding API was crucial in facilitating the implementation of this project
 
 - **Gson for JSON Manipulation**: Gson was used for constructing and parsing JSON payloads for API communication. This improved handling of JSON data structures and ensured accurate data exchange with the OpenAI API.
 
