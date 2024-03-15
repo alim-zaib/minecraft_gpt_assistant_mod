@@ -35,8 +35,6 @@ This section outlines the technologies utilised in this project and the key insi
 
 - **Asynchronous Programming**: The introduction of asynchronous operations was necessary to enhance the mod's performance by preventing freezes during API calls. This aspect of the project highlighted concurrency patterns in Java and their application in improving user experience.
 
-The project represented an exploration of AI's application within a gaming context, requiring an ongoing process of learning and adaptation to implement GPT within Minecraft effectively.
-
 
 ## Acknowledgments
 - OpenAI for providing the GPT models that power our assistant's intelligence.
