@@ -4,20 +4,21 @@
 This third-year project integrates OpenAI's GPT models into Minecraft to create a helpful assistant that can answer player questions and offer insights while playing the game. Designed as a testbed, it explores the potential of AI to enhance interactive gaming environments. This mod allows for the evaluation and comparison of responses from different GPT models, offering insights into AI's utility in real-time strategy and decision-making within video games.
 
 ## Features
-- **Vision-Based Queries**: Analyse in-game screenshots to provide contextual information about the environment, identify objects, and offer advice based on what they see.
-- **Textual Assistance**: Utilise natural language processing to answer queries related to game mechanics, crafting recipes, strategic advice, and general Minecraft knowledge.
-- **Inventory Analysis**: Transforms the player's inventory into a textual format for comprehensive queries, facilitating suggestions on item use, management, and crafting opportunities.
-- **General Minecraft Queries**: Leverages the GPT model to answer wide-ranging questions about Minecraft, providing players with a deeper understanding and guidance without specific context requirements.
-- **Interactive Engagement**: Engages with the game world in real-time, offering solutions, hints, and entertainment, making each gameplay session unique and enriched with AI-powered insights.
-- **Educational Insights**: Provides educational content on Minecraft's vast ecosystem, encouraging learning through play and exploration, powered by advanced AI models.
+- **Vision-Based Queries**: Analysing screenshots within the game to offer details about the surroundings recognise objects and give suggestions based on visual information.
+- **Textual Support**: Using GPT models to address questions regarding game mechanics crafting recipes strategic tips and general knowledge about Minecraft.
+- **Inventory Analysis**: Converting the players inventory into text for inquiries providing advice on item usage organisation and crafting possibilities.
+- **General Minecraft Queries**: Using the GPT model to respond to questions about Minecraft without requiring specific context assisting players in gaining deeper insights and guidance.
+- **Interactive Engagement**: Interacting with the game environment in time by proposing solutions, clues and entertainment elements that add uniqueness and enriched perspectives powered by AI during each gameplay session.
 
 ## Usage
 - `/askvision [query]`: For visual inquiries about your surroundings or seeking suggestions based on screenshots.
-- `/askinventory [query]`: Analyses your current inventory setup, offering advice or answers based on your in-game resources.
+- `/askinventory [query]`: Analyses your inventory setup and receive advice or information based on the resources you have in game.
 - `/askgpt [query]`: A versatile command for general Minecraft-related questions, tapping into GPT's knowledge base for immediate, AI-driven responses.
 
-## Testbed for GPT Evaluation
-This project serves as a platform for testing and evaluating the effectiveness and accuracy of GPT models within the interactive context of playing video games like Minecraft. It facilitates a unique opportunity to understand how different GPT models respond to a variety of queries, contributing valuable insights into AI's applicability in gaming.
+## Testbed for GPT in Gaming
+
+This mod acts as a research platform for qualitatively evaluating the performance of GPT models in the interactive setting of Minecraft gameplay. It provides a structured environment to assess the models' effectiveness in understanding and responding to various player queries. Methods such as player surveys will be employed to gather qualitative data on user experience and the relevance and accuracy of the AI's responses, offering insights into the practical application of AI in gaming contexts.
+
 
 ## Technologies and Learning
 
