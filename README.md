@@ -28,9 +28,9 @@ This section outlines the technologies utilised in this project and the key insi
 
 - **Java**: Java served as the primary development language for the mod. The project provided an opportunity to apply Java in the context of game modding, enhancing proficiency in the language.
 
-- **Minecraft Documentation**: Critical for gaining insights into Minecraft's internal mechanics and modding capabilities. This documentation was a crucial resource for understanding how to interact with and modify the game programmatically.
+- **Minecraft Documentation**: Critical for gaining insights into Minecraft's internal mechanics and modding capabilities.
 
-- **Forge Documentation**: Forge's modding API facilitated the implementation of this project. Familiarity with Forge's documentation was essential for navigating its modding tools and APIs.
+- **Forge Documentation**: Forge's modding API facilitated the implementation of this project.
 
 - **Gson for JSON Manipulation**: Gson was used for constructing and parsing JSON payloads for API communication. This improved handling of JSON data structures and ensured accurate data exchange with the OpenAI API.
 
@@ -38,5 +38,5 @@ This section outlines the technologies utilised in this project and the key insi
 
 
 ## Acknowledgments
-- OpenAI for providing the GPT models that power our assistant's intelligence.
-- Minecraft Forge for the modding tools that make this integration possible.
+- OpenAI for providing the GPT models.
+- Minecraft Forge for the modding tools.
