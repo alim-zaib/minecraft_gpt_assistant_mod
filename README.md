@@ -35,8 +35,3 @@ This section outlines the technologies utilised in this project and the key insi
 - **Gson for JSON Manipulation**: Gson was used for constructing and parsing JSON payloads for API communication. This improved handling of JSON data structures and ensured accurate data exchange with the OpenAI API.
 
 - **Asynchronous Programming**: The introduction of asynchronous operations was necessary to enhance the mod's performance by preventing freezes during API calls. This aspect of the project highlighted concurrency patterns in Java and their application in improving user experience.
-
-
-## Acknowledgments
-- OpenAI for providing the GPT models.
-- Minecraft Forge for the modding tools.
