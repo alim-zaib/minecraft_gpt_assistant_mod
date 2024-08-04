@@ -1,4 +1,4 @@
-# Minecraft GPT Assistant
+# Minecraft GPT Assistant Mod
 
 ## Project Overview
 This third-year project integrates OpenAI's GPT models into Minecraft to create a helpful assistant that can answer player questions and offer insights while playing the game. Designed as a testbed, it explores the potential of AI to enhance interactive gaming environments. This mod allows for the evaluation and comparison of responses from different GPT models, offering insights into AI's utility in real-time strategy and decision-making within video games.
