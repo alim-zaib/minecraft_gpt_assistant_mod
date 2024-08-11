@@ -4,7 +4,7 @@ This Minecraft mod integrates OpenAI's GPT models into the game, creating a virt
 
 ### Purpose
 
-The primary purpose of this mod is to demonstrate how GPT can be utilized to improve player engagement and support within Minecraft. By allowing players to interact with an AI assistant, the mod offers a novel way to navigate the game’s complex mechanics and expansive world.
+The primary purpose of this mod is to demonstrate how GPT can be utilised to improve player engagement and support within Minecraft. By allowing players to interact with an AI assistant, the mod offers a novel way to navigate the game’s complex mechanics and expansive world.
 
 ### Key Features
 
